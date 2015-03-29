@@ -13,8 +13,3 @@ echo '<div class="pic">';
   echo '</div>';
 echo '</div>';
 ?>
-
-
-#############
-echo $_GET['file'];
-
