@@ -1,0 +1,26 @@
+.pic {
+    height: 87%;
+    width: 100%;
+    padding: 25px;
+    border: 25px;
+    margin: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pic_object {
+    height: 87%;
+    padding: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.meta {
+    height: 87%;
+    padding: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+}

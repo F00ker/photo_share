@@ -15,7 +15,7 @@ foreach ($files as $file)
 {
 	if($file != "." && $file!=".." && substr($file,strlen($file)-4)!=".php" && $file!="js" && $file!="robots.txt" && $file!=".htpasswd")
 	{
-		echo '<a class="fancybox" rel="group" href="photos/'.$file.'">';
+		echo '<a class="fancybox" rel="group" href=show.php?file='.urlencode($file).'>';
                 echo '<img class="pic" src="thumbs/'.$file.'">';
                 echo '</a>';
 	}
