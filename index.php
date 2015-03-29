@@ -9,16 +9,24 @@ echo '<title> Scott </title>';
 echo '</head>';
 
 
-// Category (folder) choice
+// list files and sort by exif date
 $files = scandir("./thumbs/");
-foreach ($files as $file)
+$files = array_diff($files, array('.', '..'));
+$sorted_files = array();
+
+foreach($files as $file)
 {
-	if($file != "." && $file!=".." && substr($file,strlen($file)-4)!=".php" && $file!="js" && $file!="robots.txt" && $file!=".htpasswd")
-	{
-		echo '<a class="fancybox" rel="group" href=show.php?file='.urlencode($file).'>';
-                echo '<img class="pic" src="thumbs/'.$file.'">';
-                echo '</a>';
-	}
+  array_push($sorted_files,[exif_read_data("photos/".$file)['DateTimeOriginal'],$file]);
+}
+
+asort($sorted_files);
+
+// display sorted array of thumbnails
+foreach ($sorted_files as $file)
+{
+  echo '<a class="fancybox" rel="group" href=show.php?file='.urlencode($file[1]).'>';
+  echo '<img class="pic" src="thumbs/'.$file[1].'">';
+  echo '</a>';
 }
 
 ?>
