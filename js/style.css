@@ -1,0 +1,45 @@
+.pic
+{
+	padding: 15px;
+	max-height: 200px;
+	max-width: 250px;
+	width: auto;
+	height: auto;
+}
+
+.intro_pic
+{
+	position: relatif;
+	align:center;
+	height: 160px;
+	width: auto;
+}
+
+#navigation
+{
+	align: bottom;
+	width: 100%;
+}
+
+#back
+{
+	float: left;
+        align: bottom;
+        padding-right:20px;
+}
+
+#home
+{
+        float: middle;
+        align: bottom;
+        padding-left:20px;
+        padding-right:20px;
+}
+
+#next
+{
+        float: right;
+        align: bottom;
+        padding-left:20px;
+}
+
