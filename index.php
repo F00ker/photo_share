@@ -1,10 +1,5 @@
 <?php
 echo '<head>';
-echo '<meta http-equiv="Content-type" content="text/html;charset=UTF-8">';
-echo '<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>';
-echo '<link rel="stylesheet" href="js/jquery.fancybox.css" type="text/css" media="screen" />';
-echo '<link rel="stylesheet" href="js/style.css" type="text/css" />';
-echo '<script type="text/javascript" src="js/jquery.fancybox.pack.js?v=2.1.5"></script>';
 echo '<title> Scott </title>';
 echo '</head>';
 
@@ -22,11 +17,21 @@ foreach($files as $file)
 asort($sorted_files);
 
 // display sorted array of thumbnails
+$taken_date = "";
 foreach ($sorted_files as $file)
 {
+
+  if($taken_date != substr($file[0],0,10))
+  {
+    if ($taken_date != "")
+      echo "</div>";
+    echo "<div class=newday>";
+    echo substr($file[0],0,10);
+    $taken_date = substr($file[0],0,10);
+  }
   echo '<a class="fancybox" rel="group" href=show.php?file='.urlencode($file[1]).'>';
   echo '<img class="pic" src="thumbs/'.$file[1].'">';
   echo '</a>';
 }
-
+echo "</div>";
 ?>
