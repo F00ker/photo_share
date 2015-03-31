@@ -1,0 +1,21 @@
+.main {
+  position: relative;
+}
+
+.newday {
+  display: inline-block;
+  float: bottom;
+  border-style: dotted;
+  border-width: 1;
+  margin: 5px;
+}
+
+.date {
+  float: top;
+  width: 150px;
+}
+
+.pic {
+  padding: 1em;
+  float: left;
+}

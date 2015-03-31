@@ -1,5 +1,6 @@
 <?php
 echo '<head>';
+echo '<link rel="stylesheet" href="css/main.css" type="text/css" />';
 echo '<title> Scott </title>';
 echo '</head>';
 
@@ -14,24 +15,31 @@ foreach($files as $file)
   array_push($sorted_files,[exif_read_data("photos/".$file)['DateTimeOriginal'],$file]);
 }
 
-asort($sorted_files);
+arsort($sorted_files);
 
 // display sorted array of thumbnails
 $taken_date = "";
-foreach ($sorted_files as $file)
-{
 
-  if($taken_date != substr($file[0],0,10))
+echo "<div class=main>";
+  foreach ($sorted_files as $file)
   {
-    if ($taken_date != "")
+
+    if($taken_date != substr($file[0],0,10))
+    {
+      if ($taken_date != "")
+        echo "</div>";
+      echo "<div class=newday>";
+      echo "<div class=date>";
+      echo date('d/m/Y',strtotime($file[0]));
       echo "</div>";
-    echo "<div class=newday>";
-    echo substr($file[0],0,10);
-    $taken_date = substr($file[0],0,10);
+      $taken_date = substr($file[0],0,10);
+    }
+    echo "<div class=pic>";
+    echo '<a href=show.php?file='.urlencode($file[1]).'>';
+    echo '<img src="thumbs/'.$file[1].'">';
+    echo '</a>';
+    echo "</div>";
   }
-  echo '<a class="fancybox" rel="group" href=show.php?file='.urlencode($file[1]).'>';
-  echo '<img class="pic" src="thumbs/'.$file[1].'">';
-  echo '</a>';
-}
+  echo "</div>";
 echo "</div>";
 ?>
